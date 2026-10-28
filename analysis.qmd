@@ -1,0 +1,31 @@
+---
+title: "GitHub Advanced"
+author: "Greta Tillery"
+execute:
+  echo: false
+format: html
+---
+
+This plot explores the relationship between vehicle weight and fuel efficiency
+in R's built-in `mtcars` data.
+
+```{r}
+#| label: setup
+#| message: false
+
+library(tidyverse)
+```
+
+```{r}
+#| label: vehicle-plot
+
+ggplot(mtcars, aes(x = wt, y = mpg, color = factor(cyl))) +
+  geom_point(size = 3) +
+  labs(
+    title = "Heavier Cars Tend to Use More Fuel",
+    x = "Weight (1000 lbs)",
+    y = "Fuel efficiency (miles per gallon)",
+    color = "Cylinders"
+  ) +
+  theme_minimal()
+```
